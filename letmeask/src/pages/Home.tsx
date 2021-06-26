@@ -35,7 +35,12 @@ export function Home() {
         const roomRef = await database.ref(`rooms/${roomCode}`).get();
 
         if (!roomRef.exists()) {
-            alert('Essa sala não existe ou foi excluída!');
+            alert('Eita! Essa sala não existe!');
+            return;
+        }
+
+        if(roomRef.val().endedAt) {
+            alert('Opa! Parece que essa sala já foi encerrada!');
             return;
         }
 

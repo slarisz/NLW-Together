@@ -2,10 +2,42 @@
     background: #fefefe;
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    padding: 24px;
+    padding: 20px 24px 16px;
 
     & + .question {
-        margin-top: 15px;
+        margin-bottom: 15px;
+    }    
+
+    &.highlighted {
+        background: #f4f0ff;
+        border: 1px solid #835afd;
+        
+        button {
+            svg circle, svg path {
+                stroke: #e559f9;;
+            }
+        }
+        
+        footer .user-info span {
+            font-weight: 500;
+            color: #29292e;
+        }
+        
+    }
+
+    &.answered {
+        background: #dbdcdd;
+
+        footer .user-info {
+            span {
+                font-weight: 500;
+                color: #71717b;
+            }
+
+            img {
+                filter: saturate(0);
+            }
+        }
     }
 
     p {
@@ -21,6 +53,7 @@
         .user-info {
             display: flex;
             align-items: center;
+            gap: 8px;
 
             img {
                 width: 32px;
@@ -29,10 +62,14 @@
             }
 
             span {
-                margin-left: 8px;
                 color: #737380;
                 font-size: 14px;
             }
+        }
+
+        > div {
+            display: flex;
+            gap: 8px;
         }
 
         button {
